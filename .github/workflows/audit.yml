@@ -1,0 +1,14 @@
+name: Audit dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'Audit scope for this run'
+        required: false
+        default: 'full'
+jobs:
+  run-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report scope
+        run: echo "Audit scope: ${{ github.event.inputs.scope }}"
